@@ -3,12 +3,15 @@
 
 import { PDFViewer } from '@react-pdf/renderer';
 import MyDocument from './Document';
+import { useAtom } from 'jotai';
+import { UserAtom } from '@/atoms/user';
 
 
 export default function PDFClientViewer() {
+  const userData = useAtom(UserAtom)
   return (
     <PDFViewer style={{ width: '100%', height: '90vh', border: '2px solid #ddd' , borderRadius:'12px' }}>
-      <MyDocument />
+      <MyDocument userData={userData[0]} />
     </PDFViewer>
   );
 }

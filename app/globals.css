@@ -120,3 +120,34 @@
 }
 
 
+/* For WebKit browsers */
+::-webkit-scrollbar {
+  width: 4px; /* vertical scrollbar */
+  height: 4px; /* horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+
+.my-scroll-container::-webkit-scrollbar {
+  width: 3px;
+  height: 2px;
+}
+
+.my-scroll-container::-webkit-scrollbar-thumb {
+  background: #c9c7c7;
+  border-radius: 12px;
+  height: 8px;
+}

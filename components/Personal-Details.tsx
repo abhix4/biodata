@@ -19,6 +19,31 @@ export function PersonalDetails({register}: any) {
         <Label htmlFor="DateOfBirth">Date of Birth</Label>
       <Input {...register("DateOfBirth")} placeholder="DD/MM/YYYY" />
       </div>
+         <div  className="flex flex-col gap-2">
+        <Label htmlFor="Rashi">Rashi</Label>
+      <Input {...register("Rashi")} placeholder="Rashi" />
+      </div>
+         <div  className="flex flex-col gap-2">
+        <Label htmlFor="Nakshatra">Nakshatra</Label>
+      <Input {...register("Nakshatra")} placeholder="Nakshatra" />
+      </div>
+      <div  className="flex flex-col gap-2">
+        <Label htmlFor="Complexion">Complexion</Label>
+        <Input {...register("Complexion")} placeholder="Complexion" />
+      </div>
+       <div  className="flex flex-col gap-2">
+        <Label htmlFor="Height">Height</Label>
+        <Input {...register("Height")} placeholder="5ft 4inches" />
+      </div>
+         <div  className="flex flex-col gap-2">
+        <Label htmlFor="Education">Education</Label>
+        <Input {...register("Education")} placeholder="Education" />
+      </div>
+         <div  className="flex flex-col gap-2">
+        <Label htmlFor="Job">Job/Occupation</Label>
+        <Input {...register("Job")} placeholder="Job" />
+      </div>
+      
      <div  className="flex flex-col gap-2">
          <Label htmlFor="DateOfBirth">Place of Birth</Label>
       <Input {...register("PlaceOfBirth")} placeholder="Place of birth" />

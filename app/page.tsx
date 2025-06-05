@@ -2,12 +2,13 @@
 import { UserAtom } from "@/atoms/user";
 import { ContactDetails } from "@/components/Contact-Details";
 import { FamilyDetails } from "@/components/Family-Details";
+import HowItWorks from "@/components/HowItWorks";
 import PDFClientViewer from "@/components/Pdf-Viewer";
 import { PersonalDetails } from "@/components/Personal-Details";
 import { Button } from "@/components/ui/button";
 import { useAtom, useSetAtom } from "jotai";
 import { FileText } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -18,9 +19,17 @@ export default function Home() {
     const setUserData = useSetAtom(UserAtom)
     const userData = useAtom(UserAtom)
     console.log(data)
+
+    const [seenOnboarding, setSeenOnboarding] = useState(true)
+    useEffect(() => {
+        const onboarding = localStorage.getItem("seenHowItWorks")
+        setSeenOnboarding(onboarding === "true")
+    },[])
+
+
   return (
-    <div className="flex gap-4 p-4 max-h-screen">
-     <div className="w-1/2 px-8 py-8 border border-black/15 rounded-lg overflow-y-scroll">
+    <div className="flex flex-col md:flex-row gap-4 p-4 max-h-screen relative">
+     <div className="md:w-1/2 px-8 py-8 border border-black/15 rounded-lg overflow-y-scroll my-scroll-container">
       <div className="flex flex-col gap-6">
       <PersonalDetails register={register}/>
       <FamilyDetails register={register}/>
@@ -31,6 +40,12 @@ export default function Home() {
           Name: data.Name,
           DateOfBirth: data.DateOfBirth,
           PlaceOfBirth: data.PlaceOfBirth,
+          Rashi: data.Rashi,
+          Nakshatra: data.Nakshatra,
+          Complexion: data.Complexion,
+          Height: data.Height,
+          Education: data.Education,
+          Job: data.Job,
           FatherName: data.fatherName,
           FatherOccupation: data.fatherOccupation,
           MotherName: data.motherName,
@@ -42,14 +57,20 @@ export default function Home() {
         toast.success("Data submitted successfully! You can now view the PDF.")
       })} className="mt-8 w-40 cursor-pointer bg-yellow-500 hover:bg-yellow-600" >Submit</Button>
      </div>
-     <div className="w-1/2 px-8 py-8  border border-black/15 rounded-lg"> 
+     <div className="md:w-1/2 px-8 py-8  border border-black/15 rounded-lg"> 
      {
        userData[0] && userData[0].Name ? <PDFClientViewer/> : <div className="flex gap-4  flex-col items-center justify-center h-full text-black/40"> 
        <FileText size={100} />
-       please add content see the pdf</div>
+       Please add details see the pdf</div>
      }
       
      </div>
+     {
+      seenOnboarding ? null : <div className="w-full h-screen absolute top-0 left-0 bg-black/50 z-10 flex items-center justify-center">
+      <HowItWorks setSeenOnboarding={setSeenOnboarding}/>
+     </div>
+     }
     </div>
+    
   );
 }
