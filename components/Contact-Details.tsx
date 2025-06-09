@@ -74,7 +74,7 @@ function AdditonalFields({register, index, deleteField, unregister}:any){
   return (
  <div className="flex flex-row  items-center "  >
           <div className="w-9/10">
-          <DynamicFields register={register} formType={"personal"} removeTheField={removeField} unregister={unregister}/>
+          <DynamicFields register={register} formType={"contact"} removeTheField={removeField} unregister={unregister}/>
 
           </div>
           <Trash2 size={20} className="cursor-pointer w-1/10 text-red-600" onClick={handleDelete} />
