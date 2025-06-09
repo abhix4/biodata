@@ -63,7 +63,7 @@ type UserData = {
   Address: string;
 };
 
-export default function MyDocument({ userData }: { userData: UserData }) {
+export default function MyDocument({ userData }: { userData: any }) {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
