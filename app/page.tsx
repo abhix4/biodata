@@ -33,7 +33,7 @@ export default function Home() {
     <div className="flex flex-col md:flex-row gap-4 p-4 h-screen relative">
      <div className="md:w-1/2  border border-black/15 rounded-lg overflow-y-scroll my-scroll-container relative">
        {/* <SidebarTrigger /> */}
-      <div className="flex flex-col gap-6 px-8 py-8">
+      <div className="flex flex-col gap-6 px-6 py-8">
       <PersonalDetails register={register} unregister={unregister}/>
       <Separator/>
       <FamilyDetails register={register} unregister={unregister}/>

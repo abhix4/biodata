@@ -6,7 +6,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/App-Sidebar";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
+  weight: '400',
   subsets: ["latin"],
 });
 
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.className} antialiased`}
       >
     {/* <div className="w-full"> */}
       {/* <SidebarProvider className="w-full"> */}
