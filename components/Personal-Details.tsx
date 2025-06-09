@@ -91,6 +91,7 @@ function AdditonalFields({register, index, deleteField, unregister}:any){
   const [removeField, setRemoveField] = useState<boolean>(false)
   const handleDelete = () => {
       setRemoveField(true) 
+      
       setTimeout(() => {
       deleteField(index)
       },200)
